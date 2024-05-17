@@ -1,5 +1,5 @@
 package tss;
-import java.util.*;
+import java.security.SecureRandom;
 
 import tss.tpm.*;
 
@@ -87,12 +87,12 @@ public class Helpers {
         return sb.toString();
     }
     
-    static Random rand;
+    static SecureRandom rand;
     
     public static byte[] RandomBytes(int numBytes)
     {
         if (rand==null)
-            rand = new Random();
+            rand = new SecureRandom();
         
         byte[] res = new byte[numBytes];
         rand.nextBytes(res);
